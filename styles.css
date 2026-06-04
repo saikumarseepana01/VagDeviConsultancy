@@ -99,6 +99,9 @@ input:focus-visible {
     color: var(--primary-navy);
     text-decoration: none;
     letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
 }
 
 .logo span {
@@ -335,6 +338,15 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .logo {
+        font-size: 1.1rem;
+    }
+
+    .logo img {
+        height: 35px !important;
+        margin-right: 8px !important;
+    }
+
     .hero h1 {
         font-size: 2.5rem;
     }
