@@ -26,6 +26,8 @@ body {
     color: var(--text-dark);
     background-color: var(--white);
     overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-x: hidden;
+    width: 100%;
 }
 
 .sr-only {
@@ -194,6 +196,7 @@ input:focus-visible {
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
 }
 
@@ -353,6 +356,11 @@ footer {
 
     .contact-content {
         grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
     }
 
     .mobile-nav-toggle {
