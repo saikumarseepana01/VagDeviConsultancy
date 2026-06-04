@@ -11,18 +11,37 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Mobile Navigation Toggle
 const navToggle = document.querySelector(".mobile-nav-toggle");
 const primaryNav = document.querySelector(".nav-links");
+const navIcon = navToggle.querySelector("i");
 
 navToggle.addEventListener("click", () => {
-    const visibility = primaryNav.getAttribute("data-visible");
+    const isVisible = primaryNav.getAttribute("data-visible") === "true";
 
-    if (visibility === "false" || !visibility) {
-        primaryNav.setAttribute("data-visible", true);
-        navToggle.setAttribute("aria-expanded", true);
+    if (!isVisible) {
+        openMenu();
     } else {
-        primaryNav.setAttribute("data-visible", false);
-        navToggle.setAttribute("aria-expanded", false);
+        closeMenu();
     }
 });
+
+// Close menu when a link is clicked
+primaryNav.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", closeMenu);
+});
+
+function openMenu() {
+    primaryNav.setAttribute("data-visible", "true");
+    navToggle.setAttribute("aria-expanded", "true");
+    navIcon.classList.replace("fa-bars", "fa-xmark");
+    // Prevent background scrolling for accessibility
+    document.body.style.overflow = "hidden";
+}
+
+function closeMenu() {
+    primaryNav.setAttribute("data-visible", "false");
+    navToggle.setAttribute("aria-expanded", "false");
+    navIcon.classList.replace("fa-xmark", "fa-bars");
+    document.body.style.overflow = "";
+}
 
 // Counter Animation Logic
 const counters = document.querySelectorAll('.counter');
