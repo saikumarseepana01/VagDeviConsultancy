@@ -12,6 +12,7 @@ html {
     scroll-behavior: smooth;
     /* WCAG 2.2: Ensure focused items aren't obscured by sticky header */
     scroll-padding-top: 100px;
+    overflow-x: hidden;
 }
 
 * {
@@ -25,8 +26,6 @@ body {
     line-height: 1.6;
     color: var(--text-dark);
     background-color: var(--white);
-    overflow-x: hidden; /* Prevent horizontal scroll */
-    overflow-x: hidden;
     width: 100%;
 }
 
@@ -342,7 +341,7 @@ footer {
 
 @media (max-width: 768px) {
     .logo {
-        font-size: 1.1rem;
+        font-size: clamp(0.85rem, 4vw, 1.1rem);
     }
 
     .logo img {
