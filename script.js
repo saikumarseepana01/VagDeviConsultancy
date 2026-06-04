@@ -91,10 +91,10 @@ const themeIcon = themeToggle.querySelector('i');
 const setTheme = (theme) => {
     if (theme === 'dark') {
         document.body.setAttribute('data-theme', 'dark');
-        themeIcon.classList.replace('fa-moon', 'fa-sun');
+        themeIcon.className = 'fas fa-sun';
     } else {
         document.body.removeAttribute('data-theme');
-        themeIcon.classList.replace('fa-sun', 'fa-moon');
+        themeIcon.className = 'fas fa-moon';
     }
     localStorage.setItem('theme', theme);
 };
