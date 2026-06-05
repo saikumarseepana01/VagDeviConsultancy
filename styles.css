@@ -27,6 +27,7 @@ body {
     color: var(--text-dark);
     background-color: var(--white);
     width: 100%;
+    overflow-x: hidden; /* Extra layer of protection against horizontal overflow */
 }
 
 .sr-only {
@@ -179,7 +180,7 @@ input:focus-visible {
 }
 
 .hero h1 {
-    font-size: 3.5rem;
+    font-size: clamp(2.2rem, 8vw, 3.5rem); /* Fluid sizing prevents overflow on small screens */
     margin-bottom: 20px;
     max-width: 800px;
     margin-left: auto;
@@ -245,6 +246,34 @@ input:focus-visible {
 .hero-logo {
     filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));
     animation: fadeIn 1.5s ease-out;
+}
+
+/* About Section Styling */
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 50px;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.about-img-container {
+    display: flex;
+    justify-content: center;
+}
+
+.owner-image {
+    width: 280px;
+    height: 280px;
+    object-fit: cover; /* Ensures the image fills the circle without stretching */
+    border-radius: 50%;
+    border: 6px solid var(--accent-gold);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    transition: var(--transition);
+}
+
+.owner-image:hover {
+    transform: scale(1.02);
 }
 
 /* Statistics */
@@ -450,12 +479,22 @@ footer strong {
         margin-right: 8px !important;
     }
 
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-
     .contact-content {
         grid-template-columns: 1fr;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    form {
+        padding: 25px 20px; /* More space for inputs on small screens */
+    }
+
+    .owner-image {
+        width: 220px;
+        height: 220px;
     }
 
     .footer-grid {
